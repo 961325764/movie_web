@@ -84,9 +84,9 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'movie',
-        'USER': 'root',
+        'USER': 'admin',
         'PASSWORD': 'admin',
-        'HOST': 'localhost',
+        'HOST': '192.168.101.121',
         'PORT': 3306,
     }
 }
@@ -144,7 +144,7 @@ AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBacke
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/2",
+        "LOCATION": "redis://192.168.101.121:6379/2",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": ""  # 默认密码是空建议加入
