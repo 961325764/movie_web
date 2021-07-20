@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>视频播放页面</title>
+   {% load static %}
+   <link href="{% static 'favicon21.ico' %}" rel="shortcut icon" type="image/x-icon">
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+   <!-- 新 Bootstrap    <link rel="stylesheet" href="{% static 'package/dist/plyr.svg' %}"></link> 核心 CSS 文件 -->
+   <link rel="stylesheet" href="{% static 'bootstrap-4.5.0-dist/css/bootstrap.css'%}">
+<!--   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">-->
+   <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+{#   <link rel="stylesheet" href="{% static 'bootstrap3.3.7/css/bootstrap-theme.css'%}">#}
+   <link rel="stylesheet" href="{% static 'package/dist/plyr.css' %}">
+<!--   <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">-->
+   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+   <script src="{% static 'jquery-3.5.1/jquery-3.5.1.js' %}"></script>
+<!--   <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+   <script src="{% static 'bootstrap-4.5.0-dist/js/bootstrap.js' %}"></script>
+   <script src="{% static 'package/dist/plyr.min.js' %}"></script>
+<!--   <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+   <!-- 导入 video.js框架 -->
+   <link href="{% static 'video-js-7.10.2/video-js.css' %}" rel="stylesheet">
+{#    <link href="http://vjs.zencdn.net/5.8.8/video-js.css" rel="stylesheet">#}
+
+{#    <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>#}
+
+<!--   <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>-->
+<!--   &lt;!&ndash; 导入微信分享javaScript文件 &ndash;&gt;-->
+<!--   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>-->
+
+   <link rel="stylesheet" type="text/css" href="{% static 'video_play.css' %}">
+   <script src="{% static 'video_play.js' %}" type="text/javascript"></script>
+</head>
+<body>
+{#<div id="player"></div>#}
+<div class="container">
+    <video id="player">
+  <source src="" type="video/mp4" />
+</video>
+</div>
+
+
+{#<script src="https://cdn.jsdelivr.net/npm/plyr@3.6.3/dist/plyr.min.js"></script>#}
+{#<link rel="xhr" href="{% static 'package/dist/plyr.svg'%}">#}
+<script>
+    const player = new Plyr('#player', {
+        captions:{
+            active:true
+        },
+        fullscreen:{
+            enabled:true,
+            fallback:true,
+            iosNative:true,
+
+        },
+        {#muted:true,#}
+        volume:0.5,
+        iconUrl:'{% static 'package/dist/plyr.svg' %}',
+        blankUrl:'{% static 'package/dist/blank.mp4' %}'
+
+});
+player.source = {
+  type: 'video',
+  title: '{{ movie_info.video_name }}',
+  sources: [
+    {
+      {#src: 'http://192.168.2.200:8888/group1/M00/00/00/wKgCyF_snhCAXAa0wXXVch4NcUo0596985',#}
+        src:'{{ movie_info.movie.url }}',
+      type: 'video/mp4',
+    }]
+}
+</script>
+
+
+
+{#  <p class="text-primary">当前播放时长/秒：<span id="current_time"></span></p>#}
+{# <p class="text-primary">总时长/秒： <span id="video_duration"></span></p>#}
+{# <div class="container">#}
+{#    <p class="text-primary my_font">用户评论：</p>#}
+{##}
+{#    <form role="form" method="post">#}
+{#      <div class="form-group">#}
+{#        <textarea class="form-control" rows="3" name="user_comment" maxlength="300" placeholder="看点 | 槽点，不吐不快！别憋着，马上说出来吧！"></textarea>#}
+{#      </div>#}
+{#      <button type="submit" class="btn btn-success">发表评论</button>#}
+{#    </form>#}
+{#    <p class="text-primary my_font" id="all_comment">全部评论</p>#}
+{##}
+{#    <div class="allComments">#}
+{#      <ul class="list-unstyled comment_list">#}
+{#        <!-- 反向迭代出数据库中的数据 -->#}
+{#        {% for comment in comments_list reversed %}#}
+{#         <li class="single_comment">#}
+{#            <div class="username">#}
+{#              <strong>{{ comment.comment_username }}</strong>#}
+{#            </div>#}
+{#            <div class="contents">#}
+{#              <p>{{ comment.user_comment }}</p>#}
+{#            </div>#}
+{#            <div class="comment_time">#}
+{#              <p class="text-info">{{ comment.comment_time }}</p>#}
+{#            </div>#}
+{#        </li>#}
+{#        {% endfor %}#}
+{##}
+{#        <li class="single_comment">#}
+{#          <div class="username">#}
+{#            <strong>匿名用户 </strong>#}
+{#          </div>#}
+{#          <div class="contents">#}
+{#            <p>三国吕布，字奉先。</p>#}
+{#          </div>#}
+{#          <div class="comment_time">#}
+{#            <p class="text-info">2016/10/09 | 14:00:30</p>#}
+{#          </div>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+{# </div>#}
+
+<!--  <script>-->
+<!--  // 获取当前播放视频ID-->
+<!--//   var video_id = {{ video_id }};-->
+<!--//   // 获取已支付电影对象 0：未支付 1： 已支付-->
+<!--//   var movie_pay = {{ movie_payment_obj }};-->
+<!--//   // 获取 DOM 中指定的视频标签-->
+<!--//   var my_video = document.getElementById("my_video");-->
+<!--//   // 监听视频播放位置变化 事件-->
+<!--//   my_video.ontimeupdate = function() {-->
+<!--//     // 返回播放视频当前播放位置/秒-->
+<!--//     var currentTime = my_video.currentTime;-->
+<!--//     // 返回播放视频长度/秒-->
+<!--//     var duration = my_video.duration;-->
+<!--//     document.getElementById("current_time").innerHTML = Math.floor(currentTime);-->
+<!--//     document.getElementById('video_duration').innerHTML = Math.floor(duration);-->
+<!--//     // 当视频ID <= 5 且 未支付 执行-->
+<!--//     if (video_id <= 5 && movie_pay == 0) {-->
+<!--//       if (currentTime >= 10) {-->
+<!--//         // 重新加载视频-->
+<!--//         my_video.load();-->
+<!--//         document.getElementById("current_time").innerHTML = 0;-->
+<!--//         // js动态显示模态框-->
+<!--//         $('#my_modal').modal({show: true})-->
+<!--//       }-->
+<!--//     }-->
+<!--//   }-->
+<!--// // 微信分享配置-->
+<!--//   wx.config({-->
+<!--//             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。-->
+<!--//             appId: '{{user.appid}}', // 必填，公众号的唯一标识-->
+<!--//             timestamp: {{user.ret.timestamp}}, // 必填，生成签名的时间戳-->
+<!--//             nonceStr: '{{user.ret.nonceStr}}', // 必填，生成签名的随机串-->
+<!--//             signature: '{{user.ret.signature}}',// 必填，签名-->
+<!--//             jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表-->
+<!--//   });-->
+
+<!--  wx.ready(function(){-->
+<!--    $(document).ready(function(){-->
+<!--      // 分享到朋友圈-->
+<!--      wx.onMenuShareTimeline({-->
+<!--        title: '支持微信分享视频网页',-->
+<!--        link: '{{ url }}',-->
+<!--        imgUrl: 'http://ulab.newclass.org/movie/kakaxi.png',-->
+<!--        trigger: function () {-->
+<!--          // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回-->
+<!--          alert('点击分享菜单:ok');-->
+<!--        },-->
+<!--        success: function () {-->
+<!--          alert('分享成功');-->
+<!--        },-->
+<!--        cancel: function () {-->
+<!--          alert('取消分享');-->
+<!--        }-->
+<!--      });-->
+<!--      // alert('注册成功，支持分享到朋友圈');-->
+<!--    });-->
+
+<!--    $(document).ready(function(){-->
+<!--      // 分享给朋友-->
+<!--      wx.onMenuShareAppMessage({-->
+<!--        title: '支持微信分享视频网页',-->
+<!--        desc: '小宇的第一个支持微信&#45;&#45;分享的网页',-->
+<!--        link: '{{ url }}',-->
+<!--        imgUrl: 'http://ulab.newclass.org/movie/kakaxi.png',-->
+<!--        trigger: function () {-->
+<!--          // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回-->
+<!--          alert('点击分享菜单:ok');-->
+<!--        },-->
+<!--        success: function () {-->
+<!--          alert('分享成功');-->
+<!--        },-->
+<!--        cancel: function () {-->
+<!--          alert('取消分享');-->
+<!--        }-->
+<!--      });-->
+<!--      // alert('注册成功，支持分享给朋友');-->
+<!--    });-->
+<!--  });-->
+<!--  </script>-->
+</body>
+</html>

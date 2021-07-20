@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+    {% load static %}
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, height=divice-height, inital-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <link href="{% static 'favicon21.ico' %}" rel="shortcut icon" type="image/x-icon">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="{% static 'bootstrap-4.5.0-dist/css/bootstrap.css'%}">
+{#    <link rel="stylesheet" href="{% static 'bootstrap3.3.7/css/bootstrap.css'%}">#}
+    <!--    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="{% static 'jquery-3.5.1/jquery-3.5.1.js' %}"></script>
+    <!--    <script src="http://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>-->
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="{% static 'bootstrap-4.5.0-dist/js/bootstrap.js' %}"></script>
+{#    <script src="{% static 'bootstrap3.3.7/js/bootstrap.js' %}"></script>#}
+    <!--    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+{##}
+{#  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">#}
+{#  <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>#}
+{#  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>#}
+{#  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>#}
+
+
+
+
+    <link type="text/css" rel="stylesheet" href="{% static 'home_page.css' %}">
+
+
+</head>
+<body>
+  <div class="container">
+    <div id="user">
+{#      {% if user.is_authenticated %}#}
+{#        <p class="text-primary">☹ 欧漏。你还未登录 or 用户名存储已过期，可重新<a href="/user/login">登录...</a></p>#}
+{##}
+{#      {% else %}#}
+        <p class="text-primary">☺ 登录成功。欢迎用户 {{ user.username }}，来到本视频网站 ……<a href="{% url 'user:logout' %}">点击退出登录</a></p>
+{#      {% endif %}#}
+    </div>
+
+{#    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">#}
+{#      	<!-- 轮播（Carousel）指标 -->#}
+{#      	<ol class="carousel-indicators">#}
+{#      		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>#}
+{#      		<li data-target="#myCarousel" data-slide-to="1"></li>#}
+{#      		<li data-target="#myCarousel" data-slide-to="2"></li>#}
+{#      		<li data-target="#myCarousel" data-slide-to="3"></li>#}
+{#      	</ol>#}
+{#      	<!-- 轮播（Carousel）项目 -->#}
+{#      	<div class="carousel-inner">#}
+{#          <div class="item active">#}
+{#      			<a href="video_姜子牙.html" target="_blank"><img src="{% static 'images/jiangziyalunbo.png' %}" alt="姜子牙"/></a>#}
+{#      		</div>#}
+{#      		<div class="item">#}
+{#      			<a href="video_急先锋.html" target="_blank"><img src="{% static 'images/jiixanfenglunbo.jpg' %}" alt="急先锋" /></a>#}
+{#      		</div>#}
+{#      		<div class="item">#}
+{#      			<a href="video_唐人街探案2.html" target="_blank"><img src="{% static 'images/唐人街探案2轮播.jpg' %}" alt="唐人街探案2" /></a>#}
+{#      		</div>#}
+{#<!--          <div class="item">-->#}
+{#<!--            <a href="video_14.html" target="_blank"><img src="{% static 'images/CiWeiXiaoZi.jpg' %}" alt="刺猬小子" /></a>-->#}
+{#<!--          </div>-->#}
+{#      	</div>#}
+{#      	<!-- 轮播（Carousel）导航 -->#}
+{#      	<a class="carousel-control left" href="#myCarousel"#}
+{#      	   data-slide="prev">&lsaquo;</a>#}
+{#      	<a class="carousel-control right" href="#myCarousel"#}
+{#      	   data-slide="next">&rsaquo;</a>#}
+{#     </div>#}
+
+{#    <div>#}
+{#      <hr />#}
+{#      <ul class="nav nav-tabs nav-justified">#}
+{#        <li><a href="#tab0" data-toggle="tab">全部</a></li>#}
+{#        <li><a href="#tab1" data-toggle="tab">冒险</a></li>#}
+{#        <li><a href="#tab2" data-toggle="tab">喜剧</a></li>#}
+{#        <li><a href="#tab3" data-toggle="tab">动画</a></li>#}
+{#        <li><a href="#tab4" data-toggle="tab">科幻</a></li>#}
+{#        <li><a href="#tab5" data-toggle="tab">犯罪</a></li>#}
+{#        <li><a href="#tab6" data-toggle="tab">爱情</a></li>#}
+{#        <li><a href="#tab7" data-toggle="tab">武侠</a></li>#}
+{#        <li><a href="#tab8" data-toggle="tab">灾难</a></li>#}
+{#      </ul>#}
+{#    </div>#}
+
+    <div>
+      <hr />
+      <ul class="nav nav-pills nav-fill" role="tablist">
+        <li class="nav-item"><a class="nav-link active" href="#tab0" data-toggle="tab">全部</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab1" data-toggle="tab">冒险</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab">喜剧</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">动画</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab4" data-toggle="tab">科幻</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab5" data-toggle="tab">犯罪</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab6" data-toggle="tab">爱情</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab7" data-toggle="tab">武侠</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab8" data-toggle="tab">灾难</a></li>
+      </ul>
+    </div>
+
+    <div class="tab-content " id="my-content">
+      <div class="container tab-pane active" id="tab0">
+        <ul class="figures_lists">
+         {% for quanbu in quanbu_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' quanbu.video_name %}"{{ quanbu }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ quanbu.video_img_path.url }}"  alt="{{ quanbu.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' quanbu.video_name %}"{{ quanbu }}  target="_blank" title="{{ quanbu.video_name }}">{{ quanbu.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab1">
+        <ul class="figures_lists">
+       {% for maoxian in maoxian_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' maoxian.video_name %}"{{ maoxian }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ maoxian.video_img_path.url }}"  alt="{{ maoxian.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' maoxian.video_name %}"{{ maoxian }}  target="_blank" title="{{ maoxian.video_name }}">{{ maoxian.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab2">
+        <ul class="figures_lists">
+         {% for xiju in xiju_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' xiju.video_name %}"{{ xiju }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ xiju.video_img_path.url }}"  alt="{{ xiju.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' xiju.video_name %}"{{ xiju }}  target="_blank" title="{{ xiju.video_name }}">{{ xiju.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab3">
+        <ul class="figures_lists">
+         {% for donghua in donghua_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' donghua.video_name %}"{{ donghua }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ donghua.video_img_path.url }}"  alt="{{ donghua.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' donghua.video_name %}"{{ donghua }}  target="_blank" title="{{ donghua.video_name }}">{{ donghua.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab4">
+        <ul class="figures_lists">
+         {% for kehuan in kehuan_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' kehuan.video_name %}"{{ donghua }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ kehuan.video_img_path.url }}"  alt="{{ kehuan.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' kehuan.video_name %}"{{ donghua }}  target="_blank" title="{{ kehuan.video_name }}">{{ kehuan.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab5">
+        <ul class="figures_lists">
+          {% for fanzui in fanzui_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' fanzui.video_name %}"{{ fanzui }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ fanzui.video_img_path.url }}"  alt="{{ fanzui.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' fanzui.video_name %}"{{ fanzui }}  target="_blank" title="{{ fanzui.video_name }}">{{ fanzui.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade"  id="tab6">
+        <ul class="figures_lists">
+          {% for aiqing in aiqing_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' aiqing.video_name %}"{{ aiqing }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ aiqing.video_img_path.url }}"  alt="{{ aiqing.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' aiqing.video_name %}"{{ aiqing }}  target="_blank" title="{{ aiqing.video_name }}">{{ aiqing.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+
+        </ul>
+      </div>
+
+      <div class="container tab-pane fade" id="tab7">
+        <ul class="figures_lists">
+          {% for wuxua in wuxua_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' wuxua.video_name %}"{{ wuxua }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ wuxua.video_img_path.url }}"  alt="{{ wuxua.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' wuxua.video_name %}"{{ wuxua }}  target="_blank" title="{{ wuxua.video_name }}">{{ wuxua.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+    </ul>
+    </div>
+
+      <div class="container tab-pane fade" id="tab8">
+        <ul class="figures_lists">
+         {% for zainan in zainan_info %}
+         <li class="list_item" data-trigger-class="list_item_hover">
+             <a _boss="film" href="{% url 'movie:video_' zainan.video_name %}"{{ zainan }} target="_blank" class="figure" tabindex="-1">
+                 <img src="{{ zainan.video_img_path.url }}"  alt="{{ zainan.video_name }} ">
+             </a>
+             <div class="label_title">
+                 <span class="label_font">VIP影片</span>
+             </div>
+             <strong class="figure_title">
+             <a _boss="film" href="{% url 'movie:video_' zainan.video_name %}"{{ zainan }}  target="_blank" title="{{ zainan.video_name }}">{{ zainan.video_name }}</a>
+              </strong>
+         </li>
+            {% endfor %}
+        </ul>
+      </div>
+  </div>
+</div>
+</body>
+</html>
